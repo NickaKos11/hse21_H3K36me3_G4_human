@@ -42,12 +42,49 @@
 Для этого используем команду 
 "cat  *.filtered.bed  |   sort -k1,1 -k2,2n   |   bedtools merge   >  H3K36me3_HEK293.merge.hg19.bed"
 
+## Анализ участков вторичной стр-ры ДНК
+
 Скачиваем файл со вторичной стр-рой ДНК G4_seq_Li_K 
 (т.к файлов несколько, необходимо объединить их командой "cat  *.max.K.w50.25.bed  |   sort -k1,1 -k2,2n   |   bedtools merge   >  G4_seq_Li_K.bed")
 
-### Распределение длин участков вторичной стр-ры ДНК:
+#### Распределение длин участков вторичной стр-ры ДНК:
 Количество пиков - 428624
 
 ![alt-text](https://github.com/NickaKos11/hse21_H3K36me3_G4_human/raw/main/images/len_hist.G4_seq_Li_K.png)
 
+#### Расположение участков стр-ры ДНК относительно аннотированных генов
+![alt-text](https://github.com/NickaKos11/hse21_H3K36me3_G4_human/raw/main/images/chip_seeker.G4_seq_Li_K.plotAnnoPie.png)
+
+## Анализ пересечений гистоновой метки и стр-ры ДНК
+
+#### Распределения длин пересечений: 
+![alt-text](https://github.com/NickaKos11/hse21_H3K36me3_G4_human/raw/main/images/chip_seeker.H3K36me3_HEK293_with_G4.intersect.plotAnnoPie.png)
+
+Их количество - 28624
+
+### Ссылка на сессию в геномном браузере: http://genome.ucsc.edu/s/nicka1106/hse21_H3K36me3_G4_human
+
+Скриншоты мест, где есть пересечение между гистоновой меткой и структурой ДНК: 
+
+![alt-text](https://github.com/NickaKos11/hse21_H3K36me3_G4_human/raw/main/images/UCSC%20Genome%20Browser1.png)
+
+Соответствующие геномные координаты: chr1:3,561,656-3,563,766
+
+![alt-text](https://github.com/NickaKos11/hse21_H3K36me3_G4_human/raw/main/images/UCSC%20Genome%20Browser2.png)
+
+Соответствующие геномные координаты: chr1:1,452,583-1,458,915
+
+### Ассоциация полученных пересечений с ближайшими генами
+Кол-во пиков, которые удалось проассоциировать с генами - 759
+Общее кол-во уникальных генов - 552
+
+Наиболее значимые категории, найденные в ходе GO-анализа: 
+1. mitochondrial translation
+2. detection of chemical stimulus
+3. mitochondrial translational termination
+4. protein-containing complex disassembly
+5. mitochondrial gene expression
+
+Полный список категорий находится в файле pantherdb_GO_analysis.txt
+![image](https://user-images.githubusercontent.com/74317085/121390572-2fb9ac80-c956-11eb-8be1-e1ac01f96876.png)
 
